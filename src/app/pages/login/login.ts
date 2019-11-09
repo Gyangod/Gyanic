@@ -1,4 +1,5 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -19,8 +20,8 @@ export class LoginPage {
 
   constructor(
     public userData: UserData,
-    public router: Router
-  ) { }
+    public router: Router,
+    private menuCntrl: MenuController ) { }
 
   onLogin(form: NgForm) {
     this.submitted = true;
@@ -33,5 +34,13 @@ export class LoginPage {
 
   onSignup() {
     this.router.navigateByUrl('/signup');
+  }
+
+  ionViewWillEnter() {
+    this.menuCntrl.enable(false);
+  }
+
+  ionViewWillLeave() {
+    this.menuCntrl.enable(true);
   }
 }

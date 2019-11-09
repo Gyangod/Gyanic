@@ -1,3 +1,4 @@
+import { MenuController } from '@ionic/angular';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -19,7 +20,8 @@ export class SignupPage {
 
   constructor(
     public router: Router,
-    public userData: UserData
+    public userData: UserData,
+    private menuCtrl: MenuController,
   ) {}
 
   onSignup(form: NgForm) {
@@ -29,5 +31,13 @@ export class SignupPage {
       this.userData.signup(this.signup.username);
       this.router.navigateByUrl('/app/tabs/schedule');
     }
+  }
+
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
+  }
+
+  ionViewWillLeave() {
+    this.menuCtrl.enable(true);
   }
 }
