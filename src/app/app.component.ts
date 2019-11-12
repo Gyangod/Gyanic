@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
     private storage: Storage,
     private userData: UserData,
     private swUpdate: SwUpdate,
-    private toastCtrl: ToastController,
+    private toastCtrl: ToastController
   ) {
     this.initializeApp();
   }

@@ -13,6 +13,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/account/account.module').then(m => m.AccountModule)
   },
   {
+    path: 'language',
+    loadChildren: () => import('./pages/language/language.module').then(m => m.LanguageModule)
+  },
+  {
     path: 'support',
     loadChildren: () => import('./pages/support/support.module').then(m => m.SupportModule)
   },
