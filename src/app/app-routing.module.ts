@@ -15,6 +15,10 @@ const routes: Routes = [
     canLoad: [LoginGuard]
   },
   {
+    path: 'language',
+    loadChildren: () => import('./pages/language/language.module').then(m => m.LanguageModule)
+  },
+  {
     path: 'support',
     loadChildren: () => import('./pages/support/support.module').then(m => m.SupportModule),
     canLoad: [LoginGuard]
