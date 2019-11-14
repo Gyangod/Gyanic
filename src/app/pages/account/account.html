@@ -8,16 +8,32 @@
 </ion-header>
 
 <ion-content class="outer-content">
-  <div *ngIf="username" class="ion-padding-top ion-text-center">
-    <img src="https://www.gravatar.com/avatar?d=mm&s=140" alt="avatar">
-    <h2>{{username}}</h2>
+  <div *ngIf="username" class="ion-padding-top">
+    <span style="margin-inline-start: 2ex;">
+      <img src="https://www.gravatar.com/avatar?d=mm&s=140" alt="avatar">
+    </span>
+  </div>
+      <div>
+        <ion-list>
+          <ion-item>
+            <h2>{{username}}</h2>
+          </ion-item>
+        </ion-list>
+      </div>
+
 
     <ion-list inset>
-      <ion-item (click)="updatePicture()">Update Picture</ion-item>
+      <!-- <ion-item (click)="updatePicture()">Update Picture</ion-item>
       <ion-item (click)="changeUsername()">Change Username</ion-item>
       <ion-item (click)="changePassword()">Change Password</ion-item>
       <ion-item (click)="support()">Support</ion-item>
-      <ion-item (click)="logout()">Logout</ion-item>
+      <ion-item (click)="logout()">Logout</ion-item> -->
+      <ion-item>Update Picture</ion-item>
+      <ion-item>Change Password</ion-item>
+      <ion-item>My Address</ion-item>
+      <ion-item>Choose Language</ion-item>
+      <ion-item>Invite on GyanGod</ion-item>
+      <ion-item>Notification Settings</ion-item>
+      <ion-item>Logout</ion-item>
     </ion-list>
-  </div>
 </ion-content>

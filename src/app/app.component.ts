@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
     private storage: Storage,
     private userData: UserData,
     private swUpdate: SwUpdate,
-    private toastCtrl: ToastController  ) {
+    private toastCtrl: ToastController) {
     this.initializeApp();
   }
 
@@ -111,7 +111,9 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
-    this.userData.logout();
+    this.userData.logout().then(() => {
+      return this.router.navigateByUrl('/login');
+    });
   }
 
   openTutorial() {

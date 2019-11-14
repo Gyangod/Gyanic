@@ -1,3 +1,4 @@
+import { LoginService } from './../../providers/login.service';
 import { MenuController } from '@ionic/angular';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -21,12 +22,14 @@ export class LoginPage {
   constructor(
     public userData: UserData,
     public router: Router,
-    private menuCntrl: MenuController ) { }
+    private menuCntrl: MenuController,
+    private loginService: LoginService) { }
 
   onLogin(form: NgForm) {
     this.submitted = true;
 
     if (form.valid) {
+      this.loginService.logIn();
       this.userData.login(this.login.username);
       this.router.navigateByUrl('/app/tabs/schedule');
     }

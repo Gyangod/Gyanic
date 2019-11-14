@@ -12,6 +12,10 @@ export class LoginService {
   }
 
   logIn() {
-    this._isLoggedIn
+    this._isLoggedIn = true;
+  }
+
+  logOut() {
+    this._isLoggedIn = false;
   }
 }

@@ -6,13 +6,17 @@ import { CheckTutorial } from './providers/check-tutorial.service';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/app',
     pathMatch: 'full'
   },
   {
     path: 'account',
     loadChildren: () => import('./pages/account/account.module').then(m => m.AccountModule),
     canLoad: [LoginGuard]
+  },
+  {
+    path: 'language',
+    loadChildren: () => import('./pages/language/language.module').then(m => m.LanguageModule)
   },
   {
     path: 'support',
