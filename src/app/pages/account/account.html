@@ -9,31 +9,74 @@
 
 <ion-content class="outer-content">
   <div *ngIf="username" class="ion-padding-top">
-    <span style="margin-inline-start: 2ex;">
-      <img src="https://www.gravatar.com/avatar?d=mm&s=140" alt="avatar">
-    </span>
+    <ion-grid>
+      <ion-row class="ion-justify-content-center" nowrap>
+          <ion-col size-xl="2" offset-xl="4" size-lg="3" offset-lg="4"
+          size-md="2" size-sm="2" class="ion-text-center">
+            <div>
+                <img src="https://www.gravatar.com/avatar?d=mm&s=140" alt="avatar" style="max-width: 100%; max-height: 100%;">
+                <ion-fab vertical="bottom" horizontal="end" color="primary" mode="ios" outline="true">
+                    <ion-fab-button size="small" (click)="updatePicture()">
+                      <ion-icon name="camera"></ion-icon>
+                    </ion-fab-button>
+                  </ion-fab>
+            </div>
+          </ion-col>
+
+          <ion-col class="ion-text-left" class="ion-margin-start">
+            <div>
+              <h3>
+                  Person Name
+              </h3>
+            </div>
+            <div>
+              <p>
+                +91-6290 052 150
+              </p>
+            </div>
+            <div>
+              <p>
+                {{ username }}
+              </p>
+            </div>
+          </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
-      <div>
-        <ion-list>
-          <ion-item>
-            <h2>{{username}}</h2>
-          </ion-item>
-        </ion-list>
-      </div>
 
 
-    <ion-list inset>
+
+    <ion-list class="ion-margin-top">
       <!-- <ion-item (click)="updatePicture()">Update Picture</ion-item>
       <ion-item (click)="changeUsername()">Change Username</ion-item>
       <ion-item (click)="changePassword()">Change Password</ion-item>
       <ion-item (click)="support()">Support</ion-item>
       <ion-item (click)="logout()">Logout</ion-item> -->
-      <ion-item>Update Picture</ion-item>
-      <ion-item>Change Password</ion-item>
-      <ion-item>My Address</ion-item>
-      <ion-item>Choose Language</ion-item>
-      <ion-item>Invite on GyanGod</ion-item>
-      <ion-item>Notification Settings</ion-item>
-      <ion-item>Logout</ion-item>
+      <ion-item button (click)="onChangePassword()">
+        <ion-icon name="key" slot="start" color="primary"></ion-icon>
+        Change Password
+        <ion-icon></ion-icon>
+      </ion-item>
+      <ion-item button (click)="onChangePhoneNumber()">
+        <ion-icon name="call" slot="start" color="primary"></ion-icon>
+        Change Phone Number
+        <ion-icon></ion-icon>
+      </ion-item>
+      <ion-item button (click)="onChangeAddress()">
+        <ion-icon name="pin" slot="start" color="primary"></ion-icon>
+        Change Address
+      </ion-item>
+      <ion-item button (click)="onChangeLang()">
+        <ion-icon name="globe" slot="start" color="primary"></ion-icon>
+        Choose Language
+      </ion-item>
+      <ion-item button (click)="onInviteFriends()">
+        <ion-icon name="person-add" slot="start" color="primary"></ion-icon>
+        Invite on GyanGod
+      </ion-item>
+      <ion-item button lines="none" (click)="onChangeNotificationSettings()">
+        <ion-icon name="notifications" slot="start" color="primary"></ion-icon>
+        Notification Settings
+      </ion-item>
     </ion-list>
 </ion-content>
