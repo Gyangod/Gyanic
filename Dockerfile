@@ -34,13 +34,13 @@ RUN \
     git \
     unzip ruby xdg-utils links links2 w3m nano  \
     # android-sdk dependencies
-    libc6-i386 \
-    lib32stdc++6 \
-    lib32gcc1 \
-    lib32ncurses5 \
-    lib32z1 \
-    qemu-kvm \
-    kmod
+    # libc6-i386 \
+    # lib32stdc++6 \
+    # lib32gcc1 \
+    # lib32ncurses5 \
+    # lib32z1 \
+    # qemu-kvm \
+    # kmod
 # configure git
 RUN git config --global user.email "${GIT_EMAIL}"
 RUN git config --global user.name "${GIT_NAME}"
