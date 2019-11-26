@@ -26,13 +26,16 @@ ENV CORDOVA_VERSION=latest
 RUN \
   dpkg --add-architecture i386 \
   && apt-get update -y \
-  && apt-get install -y \
+  && apt-get install -y  ia32-libs \
     # tools
     curl \
     wget \
     zip \
     git \
-    unzip ruby xdg-utils links links2 w3m nano \
+    libc6-i386 \
+    lib32stdc++6 \
+    kmod \
+    unzip ruby xdg-utils links links2 w3m nano 
     # android-sdk dependencies
     # libc6-i386 \
     # lib32stdc++6 \
