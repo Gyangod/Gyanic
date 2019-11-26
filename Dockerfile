@@ -7,7 +7,7 @@ LABEL Anindya Chakraborty <anindya100c@gmail.com>
 ENV GIT_EMAIL="anindya100c@gmail.com" \
     GIT_NAME="Anindya Chakraborty"
 
-ENV NODE_VERSION=latest
+ENV NODE_VERSION=8-jessie
 ENV NPM_VERSION=latest
 ENV IONIC_VERSION=latest
 ENV CORDOVA_VERSION=latest
@@ -134,4 +134,4 @@ CMD ionic serve --prod --external --ssl
 # -----------------------------------------------------------------------------
 # Clean up
 # -----------------------------------------------------------------------------
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
