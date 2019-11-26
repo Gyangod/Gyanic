@@ -26,7 +26,7 @@ ENV CORDOVA_VERSION=latest
 RUN \
   dpkg --add-architecture i386 \
   && apt-get update -y \
-  && apt-get install -y  ia32-libs \
+  && apt-get install -y \
     # tools
     curl \
     wget \
