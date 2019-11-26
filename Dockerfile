@@ -56,16 +56,26 @@ RUN . ~/.bashrc
 # Install Java
 RUN apt-get install -y --no-install-recommends openjdk-8-jdk
 
-# Install Node and NPM
-RUN \
-  apt-get update -qqy \
-  && curl --retry 3 -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
-  && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
-  && rm "node-v$NODE_VERSION-linux-x64.tar.gz" \
-  && npm install -g npm@"$NPM_VERSION" \
-  && npm install -g cordova@"$CORDOVA_VERSION" ionic@"$IONIC_VERSION" \
-  && npm install -g karma-cli@latest \
-  && npm install --save express
+# node
+WORKDIR /opt/node
+
+RUN curl -sL https://nodejs.org/dist/v"$NODE_VERSION"/node-v"$NODE_VERSION"-linux-x64.tar.gz | tar xz --strip-components=1
+
+ENV PATH=$PATH:/opt/node/bin
+
+# ionic & cordova
+WORKDIR /tmp
+
+RUN npm i -g ionic@"$IONIC_VERSION" cordova@"$CORDOVA_VERSION" && \
+    ionic config set -g daemon.updates false && \
+    cordova telemetry off
+
+# clean up
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    apt-get purge -y --auto-remove $buildDeps && \
+    apt-get autoremove -y && \
+    apt-get clean
+  # && npm install --save express
 # Download and install Gradle
 # RUN \
 #   cd /opt \
@@ -119,7 +129,7 @@ RUN \
 WORKDIR /project
 EXPOSE 8100 
 # 35729 53703
-CMD ionic serve --prod --address = 0.0.0.0
+CMD ionic serve --prod --external --ssl
 
 # -----------------------------------------------------------------------------
 # Clean up
