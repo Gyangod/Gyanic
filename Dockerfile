@@ -1,4 +1,4 @@
-FROM ubuntu:17.10
+FROM ubuntu:18.04
 LABEL Anindya Chakraborty <anindya100c@gmail.com>
 
 # -----------------------------------------------------------------------------
