@@ -14,7 +14,7 @@ variables:
   dockerRegistryServiceConnection: '40faf15d-f1e0-4e20-be3d-089ced0d88fd'
   imageRepository: 'gyanictest'
   containerRegistry: 'gyangodcontainerreg.azurecr.io'
-  dockerfilePath: '**/Dockerfile'
+  dockerfilePath: './dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'gyangodcontainerreg7cd2-auth'
 
