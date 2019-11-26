@@ -32,9 +32,6 @@ RUN \
     wget \
     zip \
     git \
-    libc6-i386 \
-    lib32stdc++6 \
-    kmod \
     unzip ruby xdg-utils links links2 w3m nano 
     # android-sdk dependencies
     # libc6-i386 \
