@@ -32,7 +32,7 @@ RUN \
     wget \
     zip \
     git \
-    unzip ruby xdg-utils links links2 w3m nano  \
+    unzip ruby xdg-utils links links2 w3m nano  
     # android-sdk dependencies
     # libc6-i386 \
     # lib32stdc++6 \
