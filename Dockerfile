@@ -12,7 +12,8 @@ RUN git config --global user.name "${GIT_NAME}"
 
 #--# Client App
 RUN ls -ll
-WORKDIR /app
+WORKDIR /usr
+RUN ls -ll
 RUN npm install
 RUN npm install ionic
 # RUN npm install cordova
