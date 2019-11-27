@@ -11,7 +11,8 @@ RUN git config --global user.email "${GIT_EMAIL}"
 RUN git config --global user.name "${GIT_NAME}"
 
 #--# Client App
-RUN ls -ll
+RUN yum install tree
+RUN tree
 WORKDIR /usr
 RUN ls -ll
 RUN npm install
