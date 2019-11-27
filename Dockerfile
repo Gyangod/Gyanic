@@ -11,9 +11,9 @@ RUN git config --global user.email "${GIT_EMAIL}"
 RUN git config --global user.name "${GIT_NAME}"
 
 #--# Client App
-WORKDIR /usr
+WORKDIR /usr/src
 RUN ls -ll
-RUN pacman -S tree
+RUN dnf install tree
 RUN tree
 RUN npm install
 RUN npm install ionic
