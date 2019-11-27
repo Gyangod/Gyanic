@@ -11,8 +11,6 @@ RUN git config --global user.email "${GIT_EMAIL}"
 RUN git config --global user.name "${GIT_NAME}"
 
 #--# Client App
-RUN npm install -g @angular/cli
-# RUN npm install  -g cordova
 WORKDIR /app
 COPY . /app
 RUN npm install
