@@ -11,18 +11,16 @@ RUN git config --global user.email "${GIT_EMAIL}"
 RUN git config --global user.name "${GIT_NAME}"
 
 #--# Client App
-WORKDIR /usr/src
-RUN ls -ll
-RUN dnf install tree
-RUN tree
-RUN npm install
 RUN npm install ionic
 # RUN npm install cordova
+WORKDIR /app
+COPY . .
+RUN npm install
 # COPY . .
 RUN ionic cordova build browser --prod
 
 # Final image
 FROM nginx:latest as prod
-COPY --from=stage /www /usr/share/nginx/html
+COPY --from=stage /app/www /usr/share/nginx/html
 EXPOSE 3000
 CMD ["nginx" , "-g" , "daemon:off;"]
