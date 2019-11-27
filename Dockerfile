@@ -19,5 +19,5 @@ RUN ionic cordova build browser --prod
 # Final image
 FROM nginx:latest as prod
 COPY --from=stage /www /usr/share/nginx/html
-EXPOSE 443
+EXPOSE 3000
 CMD ["nginx" , "-g" , "daemon:off;"]

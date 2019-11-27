@@ -13,4 +13,4 @@ spec:
         - name: gyanictest 
           image: gyangodcontainerreg.azurecr.io/gyanictest
           ports:
-          - containerPort: 443
+          - containerPort: 3000
