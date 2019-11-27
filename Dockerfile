@@ -12,12 +12,12 @@ RUN git config --global user.name "${GIT_NAME}"
 
 #--# Client App
 RUN npm install ionic
-RUN npm install cordova
+# RUN npm install cordova
 WORKDIR /app
 COPY . .
 RUN npm install
 # COPY . .
-RUN ionic cordova build browser --prod
+RUN ionic build --prod
 
 # Final image
 FROM nginx:latest as prod
