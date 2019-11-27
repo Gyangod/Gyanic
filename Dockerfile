@@ -18,7 +18,7 @@ COPY . .
 RUN npm install
 # COPY . .
 CMD [ "ionic" , "build" , "--prod" ]
-
+RUN ls -ll
 # Final image
 FROM nginx:latest as prod
 COPY --from=stage /app/www /usr/share/nginx/html

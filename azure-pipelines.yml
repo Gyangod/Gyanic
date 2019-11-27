@@ -11,12 +11,12 @@ resources:
 variables:
 
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '40faf15d-f1e0-4e20-be3d-089ced0d88fd'
-  imageRepository: 'gyanictest'
-  containerRegistry: 'gyangodcontainerreg.azurecr.io'
+  dockerRegistryServiceConnection: 'e3332ffe-e2ce-4262-9d9e-d4243f8f8696'
+  imageRepository: 'gyangodgyanic'
+  containerRegistry: 'gyangodtestcontainerregistry.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
-  imagePullSecret: 'gyangodcontainerreg7cd2-auth'
+  imagePullSecret: 'gyangodtestcontainerregistrycb9b-auth'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -56,7 +56,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'GyangodGyanic.kube-public'
+    environment: 'GyangodGyanic-2091.kube-public'
     strategy:
       runOnce:
         deploy:
@@ -86,7 +86,7 @@ stages:
     pool:
       vmImage: $(vmImageName)
       
-    environment: 'GyangodGyanic.$(k8sNamespaceForPR)'
+    environment: 'GyangodGyanic-2091.$(k8sNamespaceForPR)'
     strategy:
       runOnce:
         deploy:
