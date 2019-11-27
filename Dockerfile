@@ -11,8 +11,7 @@ RUN git config --global user.email "${GIT_EMAIL}"
 RUN git config --global user.name "${GIT_NAME}"
 
 #--# Client App
-RUN sudo apt-get install tree
-RUN tree
+RUN ls -ll
 WORKDIR /app
 RUN npm install
 RUN npm install ionic
