@@ -11,9 +11,11 @@ RUN git config --global user.email "${GIT_EMAIL}"
 RUN git config --global user.name "${GIT_NAME}"
 
 #--# Client App
-RUN npm install ionic
-RUN npm install cordova
-# COPY . .
+# WORKDIR /app
+RUN npm install
+# RUN npm install ionic
+# RUN npm install cordova
+COPY . .
 RUN ionic cordova build browser --prod
 
 # Final image
