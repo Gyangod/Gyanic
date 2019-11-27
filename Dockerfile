@@ -11,10 +11,10 @@ RUN git config --global user.email "${GIT_EMAIL}"
 RUN git config --global user.name "${GIT_NAME}"
 
 #--# Client App
-RUN yum install tree
-RUN tree
 WORKDIR /usr
 RUN ls -ll
+RUN pacman -S tree
+RUN tree
 RUN npm install
 RUN npm install ionic
 # RUN npm install cordova
