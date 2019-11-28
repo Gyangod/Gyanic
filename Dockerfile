@@ -14,9 +14,7 @@ RUN git config --global user.name "${GIT_NAME}"
 WORKDIR /app
 COPY . /app
 RUN npm install
-# COPY . .
 RUN npm run-script build
-RUN ls -ll
 
 # Final image
 FROM nginx:latest as prod
