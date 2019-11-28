@@ -5,6 +5,7 @@ www/
 *~
 *.sw[mnpcod]
 *.log
+*.iml
 *.tmp
 *.tmp.*
 log.txt
