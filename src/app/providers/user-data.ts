@@ -46,10 +46,9 @@ export class UserData {
   }
 
   logout(): Promise<any> {
-    return this.storage.remove(this.HAS_LOGGED_IN).then(() => {
-      return this.storage.remove('username');
-    }).then(() => {
-      this.events.publish('user:logout');
+    return this.storage.set(this.HAS_LOGGED_IN, 'false').then(() => {
+      this.storage.remove('username');
+      return this.events.publish('user:logout');
     });
   }
 
