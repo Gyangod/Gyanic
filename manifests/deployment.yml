@@ -4,11 +4,6 @@ metadata:
   name: gyangodgyanic
 spec:
   progressDeadlineSeconds: 4000
-  # strategy:
-  #   type: RollingUpdate
-  #   rollingUpdate:
-  #     maxSurge: 0
-  #     maxUnavailable: 1
   replicas: 1
   template:
     metadata:
