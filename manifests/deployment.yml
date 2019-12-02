@@ -5,6 +5,9 @@ metadata:
 spec:
   progressDeadlineSeconds: 4000
   replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
   template:
     metadata:
       labels:
