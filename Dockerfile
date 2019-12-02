@@ -20,4 +20,4 @@ RUN npm run-script build
 FROM nginx:latest as prod
 COPY --from=stage /app/www /usr/share/nginx/html
 EXPOSE 3000
-CMD ["nginx" , "-g" , "daemon:off;"]
+# CMD ["nginx" , "-g" , "daemon:off;"]
