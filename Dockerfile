@@ -19,4 +19,5 @@ RUN npm run-script build
 # Final image
 FROM nginx:latest as prod
 COPY --from=stage /app/www /usr/share/nginx/html
-COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+EXPOSE 8080
+# COPY nginx/default.conf /etc/nginx/conf.d/default.conf
