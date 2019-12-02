@@ -19,5 +19,4 @@ RUN npm run-script build
 # Final image
 FROM nginx:latest as prod
 COPY --from=stage /app/www /usr/share/nginx/html
-EXPOSE 3000
-# CMD ["nginx" , "-g" , "daemon:off;"]
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
